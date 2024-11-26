@@ -1,0 +1,273 @@
+USED IN EC2 INSTANCE 21/11/24 - 
+
+docker build -t my-python-app . (to create image with that name )
+docker run -d my-python-app
+docker ps (list all contains with details)
+docker ps -q (only ids of containers will be displayed)
+docker stop 894c6614cd85 (stops the containers working)
+docker inpect 894c6614cd85 (get entire details of container)
+docker system df (displays the number of images, conatiners,volumes etc)
+docker-compose up -d (to run docker compose file)
+
+-----------------------------------------------------------
+USED IN EC2 INSTANCE 22/11/24 -
+
+1. to execute docker-compose , 
+
+-> docker-compose up --build
+docker-compose log
+docker-compose down
+
+2. 
+--------------------
+all commands -
+ 
+Here is a list of common Docker commands you can use:
+
+### **Docker General Commands**
+
+1. **docker --help**  
+   Display Docker help and options.
+
+2. **docker version**  
+   Show Docker version information.
+
+3. **docker info**  
+   Display system-wide Docker information.
+
+4. **docker help [command]**  
+   Show help for a specific Docker command.
+
+---
+
+### **Docker Image Commands**
+
+1. **docker build**  
+   Build an image from a Dockerfile.  
+   Example: `docker build -t myimage .`
+
+2. **docker pull**  
+   Pull an image from a registry (e.g., Docker Hub).  
+   Example: `docker pull ubuntu`
+
+3. **docker push**  
+   Push an image to a registry.  
+   Example: `docker push myusername/myimage`
+
+4. **docker images**  
+   List all locally available images.
+
+5. **docker rmi**  
+   Remove one or more images.  
+   Example: `docker rmi myimage`
+
+6. **docker tag**  
+   Tag an image with a new name.  
+   Example: `docker tag myimage myusername/myimage:v1`
+
+7. **docker history**  
+   Show the history of an image.  
+   Example: `docker history myimage`
+
+---
+
+### **Docker Container Commands**
+
+1. **docker run**  
+   Create and start a container from an image.  
+   Example: `docker run -d -p 8080:80 myimage`
+
+2. **docker ps**  
+   List running containers.
+
+3. **docker ps -a**  
+   List all containers (including stopped ones).
+
+4. **docker exec**  
+   Run a command in a running container.  
+   Example: `docker exec -it mycontainer bash`
+
+5. **docker attach**  
+   Attach to a running container's output.
+
+6. **docker start**  
+   Start a stopped container.  
+   Example: `docker start mycontainer`
+
+7. **docker stop**  
+   Stop a running container.  
+   Example: `docker stop mycontainer`
+
+8. **docker restart**  
+   Restart a container.  
+   Example: `docker restart mycontainer`
+
+9. **docker kill**  
+   Forcefully stop a container.  
+   Example: `docker kill mycontainer`
+
+10. **docker rm**  
+    Remove a container (stopped).  
+    Example: `docker rm mycontainer`
+
+11. **docker logs**  
+    Show logs from a container.  
+    Example: `docker logs mycontainer`
+
+12. **docker pause**  
+    Pause a container's processes.
+
+13. **docker unpause**  
+    Unpause a container's processes.
+
+14. **docker inspect**  
+    Return detailed information about a container or image.  
+    Example: `docker inspect mycontainer`
+
+---
+
+### **Docker Network Commands**
+
+1. **docker network ls**  
+   List all Docker networks.
+
+2. **docker network inspect**  
+   Inspect a Docker network.  
+   Example: `docker network inspect bridge`
+
+3. **docker network create**  
+   Create a new network.  
+   Example: `docker network create mynetwork`
+
+4. **docker network connect**  
+   Connect a container to a network.  
+   Example: `docker network connect mynetwork mycontainer`
+
+5. **docker network disconnect**  
+   Disconnect a container from a network.  
+   Example: `docker network disconnect mynetwork mycontainer`
+
+---
+
+### **Docker Volume Commands**
+
+1. **docker volume ls**  
+   List all volumes.
+
+2. **docker volume create**  
+   Create a new volume.  
+   Example: `docker volume create myvolume`
+
+3. **docker volume inspect**  
+   Inspect a volume.  
+   Example: `docker volume inspect myvolume`
+
+4. **docker volume rm**  
+   Remove a volume.  
+   Example: `docker volume rm myvolume`
+
+---
+
+### **Docker Compose Commands**
+
+1. **docker-compose up**  
+   Start up containers defined in a `docker-compose.yml` file.
+
+2. **docker-compose down**  
+   Stop and remove containers, networks, and volumes defined in a `docker-compose.yml` file.
+
+3. **docker-compose build**  
+   Build images as defined in the `docker-compose.yml` file.
+
+4. **docker-compose ps**  
+   List containers defined in the `docker-compose.yml` file.
+
+5. **docker-compose logs**  
+   View logs from services defined in `docker-compose.yml`.
+
+6. **docker-compose exec**  
+   Run a command in a running container from a service.  
+   Example: `docker-compose exec myservice bash`
+
+7. **docker-compose stop**  
+   Stop services defined in `docker-compose.yml`.
+
+8. **docker-compose start**  
+   Start services defined in `docker-compose.yml`.
+
+---
+
+### **Docker Build and Management Commands**
+
+1. **docker commit**  
+   Create a new image from a container's changes.  
+   Example: `docker commit mycontainer mynewimage`
+
+2. **docker save**  
+   Save an image to a tar archive.  
+   Example: `docker save -o myimage.tar myimage`
+
+3. **docker load**  
+   Load an image from a tar archive.  
+   Example: `docker load -i myimage.tar`
+
+4. **docker prune**  
+   Clean up unused Docker objects (containers, networks, images, and volumes).  
+   Example: `docker system prune`
+
+5. **docker system df**  
+   Show disk usage by Docker.
+
+---
+
+### **Docker Registry Commands**
+
+1. **docker login**  
+   Log in to a Docker registry (e.g., Docker Hub).  
+   Example: `docker login`
+
+2. **docker logout**  
+   Log out from a Docker registry.  
+   Example: `docker logout`
+
+---
+
+### **Docker BuildKit Commands (Advanced)**
+
+1. **DOCKER_BUILDKIT=1 docker build**  
+   Enable Docker BuildKit to use advanced build features.  
+   Example: `DOCKER_BUILDKIT=1 docker build -t myimage .`
+
+---
+
+### **Docker Swarm Commands (for Docker Swarm mode)**
+
+1. **docker swarm init**  
+   Initialize a Docker Swarm.
+
+2. **docker swarm join**  
+   Join a node to an existing Swarm.
+
+3. **docker swarm leave**  
+   Leave a Docker Swarm.
+
+4. **docker service create**  
+   Create a new service in a Swarm.
+
+5. **docker service ls**  
+   List services in a Swarm.
+
+6. **docker service scale**  
+   Scale a service in a Swarm.  
+   Example: `docker service scale myservice=5`
+
+7. **docker node ls**  
+   List nodes in a Swarm.
+
+8. **docker stack deploy**  
+   Deploy a stack in a Swarm.
+
+---
+
+This list includes some of the most commonly used Docker commands, but Docker's functionality is vast, so be sure to refer to the official Docker documentation for additional commands and use cases.
+

@@ -1,0 +1,9 @@
+steps to create volume-
+
+1. docker volume create myapp-volume
+2. docker build -t my-python-app .
+3. docker run -v volume_try2-volume:/data my-python-app
+4. docker run --rm -v volume_try2-volume:/data busybox cat /data/output.txt
+(here busybox is an builtin image which should/will be downloaded while execution )
+5. docker volume rm volume_try2-volume  (to remove the volume created)
+ 
