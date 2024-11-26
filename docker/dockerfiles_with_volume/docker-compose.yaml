@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+  members-database:
+    build:
+      context: .
+      dockerfile: Dockerfile1
+    container_name: members-container
+    volumes:
+      - data_volume:/data  # Mount the shared volume for data persistence
+    networks:
+      - app-network
+    restart: always
+
+  students-database:
+    build:
+      context: .
+      dockerfile: Dockerfile2
+    container_name: students-container
+    volumes:
+      - data_volume:/data  # Mount the same volume for data persistence
+    networks:
+      - app-network
+    restart: always
+
+volumes:
+  data_volume:
+    driver: local
+
+networks:
+  app-network:
+    driver: bridge

@@ -1,0 +1,15 @@
+# Dockerfile1 for file1.py (Members Database)
+
+# Use an official Python runtime as a parent image
+FROM python:3.9-slim
+
+# Set the working directory inside the container
+WORKDIR /dockerfiles_with_volume
+
+# Copy the Python script into the container
+COPY members.py .
+
+# Install any dependencies (if needed, for this example no extra dependencies are required)
+
+# Command to run the Python script
+CMD ["python", "members.py"]
