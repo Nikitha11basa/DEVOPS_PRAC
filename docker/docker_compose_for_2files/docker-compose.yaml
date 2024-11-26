@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  prime-number:
+    build:
+      context: .
+      dockerfile: Dockerfile1
+    container_name: prime-number-container
+    networks:
+      - python-app-network
+    restart: always
+  
+  factorial:
+    build:
+      context: .
+      dockerfile: Dockerfile2
+    container_name: factorial-container
+    networks:
+      - python-app-network
+    restart: always
+
+networks:
+  python-app-network:
+    driver: bridge
+

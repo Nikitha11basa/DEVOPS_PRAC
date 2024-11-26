@@ -1,0 +1,13 @@
+# Dockerfile for prime number program
+
+# Use an official Python runtime as a parent image
+FROM python:3.9-slim
+
+# Set the working directory in the container
+WORKDIR /docker_compose_for_2files
+
+# Copy the current directory contents into the container at docker_compose_for_2files
+COPY file1.py .
+
+# Run the Python script when the container starts
+CMD ["python", "file1.py"]
