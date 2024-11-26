@@ -1,0 +1,17 @@
+---
+- name: Install and restart a service if necessary
+  hosts: all
+  become: true
+
+  tasks:
+    - name: Install mysql package
+      ansible.builtin.apt:
+        name: mysql-server
+        state: present
+      notify: Restart mysql-server
+
+  handlers:
+    - name: Restart mysql
+      ansible.builtin.systemd:
+        name: mysql
+        state: restarted

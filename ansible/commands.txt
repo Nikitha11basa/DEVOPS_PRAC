@@ -1,0 +1,23 @@
+PING- ansible all -m ping -i inventory 
+            or
+    ansible <hostname> -m ping    {for specific group}
+
+INVENTORY COMMANDS -
+  1. ansible-inventory --list -i inventory    {for list of hosts}
+  2. ansible-inventory --graph -i inventory {for graphical view}
+  3. ansible-inventory --refresh  {updating hosts}
+
+PLAYBOOK COMMANDS -
+  1. ansible-playbook -i inventory playbook.yml {executing}
+  2. ansible-playbook playbook.yml --syntax-check
+  3. ansible-playbook playbook.yml --start-at-task <task_name>
+  4. ansible-playbook playbook.yml -l <host/group> {for specific hots}
+
+VAULT COMMANDS -
+  1. ansible-vault encrypt file.yml
+  2. ansible-vault decrypt file.yml
+  3. ansible-vault rekey file.yml {give ps/key again to encrupted file}
+
+ROLE COMMANDS -
+  1. ansible-galaxy init role_name
+  2. ansible-galaxy install author.role_name

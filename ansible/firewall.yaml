@@ -1,0 +1,40 @@
+---
+- name: Configure UFW firewall
+  hosts: all
+  become: true
+  tasks:
+    - name: Install UFW
+      apt:
+        name: ufw
+        state: present
+        update_cache: yes
+
+    - name: Allow SSH through the firewall
+      ufw:
+        rule: allow
+        name: OpenSSH
+
+    - name: Allow HTTP traffic through the firewall
+      ufw:
+        rule: allow
+        port: '80'
+        proto: tcp
+
+    - name: Allow HTTPS traffic through the firewall
+      ufw:
+        rule: allow
+        port: '443'
+        proto: tcp
+
+    - name: Ensure UFW is enabled
+      ufw:
+        state: enabled
+        enabled: yes
+      when: ansible_facts['distribution'] == "Ubuntu"  # Optional: Limit to Ubuntu for more targeted playbook
+      register: ufw_enable
+      ignore_errors: yes
+
+    - name: Debug output if UFW failed to enable
+      debug:
+        msg: "UFW enable failed with: {{ ufw_enable }}"
+      when: ufw_enable.failed
